@@ -221,7 +221,8 @@
 //	#define ParameterIs( a ) ( ! strcmp_PF( parameter, PSTR( a )))
 #elif(FTP_SERVER_NETWORK_TYPE == NETWORK_WiFiNINA)
 
-	#include <WiFiNINA.h>
+	//#include <WiFiNINA.h>
+	#include <WiFi101.h>  // EmotiBit uses WiFi101. Including NINA gives compile errors as we do not use that library.  ToDo: Check if FTP server can be implemented on M0 with WiFi 101
 	#define FTP_CLIENT_NETWORK_CLASS WiFiClient
 	//#define FTP_CLIENT_NETWORK_SSL_CLASS WiFiSSLClient
 	#define FTP_SERVER_NETWORK_SERVER_CLASS WiFiServer

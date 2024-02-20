@@ -105,7 +105,7 @@ https://github.com/arduino-libraries/Ethernet/issues/88
 
 // Arduino SAMD
 	#define DEFAULT_FTP_SERVER_NETWORK_TYPE_SAMD 		NETWORK_WiFiNINA
-	#define DEFAULT_STORAGE_TYPE_SAMD 					STORAGE_SD
+	#define DEFAULT_STORAGE_TYPE_SAMD 					STORAGE_SDFAT2
 #endif
 
 #define UTF8_SUPPORT
