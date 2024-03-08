@@ -38,7 +38,8 @@ void setup() {
   // Choose based on EmotiBit version you are using
   //digitalWrite(EMOTIBIT_VDD_ENABLE_PIN, LOW); // for EmotiBit V2
   digitalWrite(EMOTIBIT_VDD_ENABLE_PIN, HIGH); // for EmotiBit V3+
-  
+  delay(500);
+
   if (SD.begin(EMOTIBIT_SD_CS_PIN)) {
       Serial.println("SD opened!");
       //listDir(SD, "/", 0);
