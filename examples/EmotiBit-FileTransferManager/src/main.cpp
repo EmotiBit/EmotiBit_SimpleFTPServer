@@ -2,7 +2,7 @@
 #include <FileTransferManager.h>
 
 const char* ssid = "NETWORK_NAME";
-const char* password = "NETWORK_PASSWORD";
+const char* password = "NETWORK_PASS";
 FileTransferManager fileTransferManager;
 
 // Definitions taken from EmotiBitVersionController.cpp
@@ -38,13 +38,15 @@ void setup() {
   // Choose based on EmotiBit version you are using
   //digitalWrite(EMOTIBIT_VDD_ENABLE_PIN, LOW); // for EmotiBit V2
   digitalWrite(EMOTIBIT_VDD_ENABLE_PIN, HIGH); // for EmotiBit V3+
-  delay(500);
+  delay(1000);
 
   if (SD.begin(EMOTIBIT_SD_CS_PIN)) {
       Serial.println("SD opened!");
-      //listDir(SD, "/", 0);
-      //ftpSrv.setCallback(_callback);
-      //ftpSrv.setTransferCallback(_transferCallback);
+  }
+  else
+  {
+    Serial.println("SD not initialized. Please check battery and SD card on EmotiBit");
+    while(1);
   }
   Serial.println("Setting Protocol");
   fileTransferManager.setProtocol(FileTransferManager::Protocol::FTP);
