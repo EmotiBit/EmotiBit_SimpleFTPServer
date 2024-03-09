@@ -54,6 +54,7 @@ void setup() {
   fileTransferManager.setFtpAuth("ftp", "ftp");
   Serial.println("Setting Mode");
   fileTransferManager.setMode(FileTransferManager::Mode::FILE_TRANSFER);
+  fileTransferManager.begin();
 }
 
 void loop() {
