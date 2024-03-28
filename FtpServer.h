@@ -28,6 +28,18 @@
 #include "WProgram.h"
 #endif
 
+// ToDo: PIO has a weird behavior where it is not able to find these core files if they are nested 
+// inside a #ifdef that needs evaluation. See line 216. Once the PIO issue is resolved, these explicit
+// includes can be removed since they are included downstream conditionally.
+// See https://community.platformio.org/t/platformio-ldf-inconsistent-behavior-with-finding-included-header-files/38896
+#ifdef ARDUINO_FEATHER_ESP32
+#include <WiFi.h>
+#include <SD.h>
+#elif defined ADAFRUIT_FEATHER_M0
+#include <WiFi101.h>
+#include <SdFat.h>
+#endif
+
 //
 //#if(NETWORK_ESP8266_SD == DEFAULT_FTP_SERVER_NETWORK_TYPE_ESP8266)
 //	#define ESP8266_GT_2_4_2_SD_STORAGE_SELECTED
